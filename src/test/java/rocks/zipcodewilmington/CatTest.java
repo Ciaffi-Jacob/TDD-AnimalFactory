@@ -3,6 +3,8 @@ package rocks.zipcodewilmington;
 import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
+import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
 
 import java.util.Date;
 
@@ -60,5 +62,24 @@ public class CatTest {
         cat.setBirthDate(date);
         Assert.assertEquals(date, cat.getBirthDate());
     }
-    
+    @Test
+    public void testEat(){
+        Cat cat = AnimalFactory.createCat(null, null);
+        Food food = new Food();
+        cat.eat(food);
+        Assert.assertEquals(1,(int)cat.getNumberOfMealsEaten());
+    }
+    @Test
+    public void testgetID(){
+        Cat cat = AnimalFactory.createCat(null,null);
+        CatHouse.add(cat);
+        Assert.assertEquals(0, (int)cat.getId());
+    }
+   /* @Test
+    public void testAnimalInheritance(){
+        Cat cat = AnimalFactory.createCat(null,null);
+        cat instanceof Cat;
+    }*/
+
+
 }

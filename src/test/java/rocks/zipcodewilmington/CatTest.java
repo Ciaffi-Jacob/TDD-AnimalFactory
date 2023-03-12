@@ -2,7 +2,9 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Animal;
 import rocks.zipcodewilmington.animals.Cat;
+import rocks.zipcodewilmington.animals.Mammal;
 import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 import rocks.zipcodewilmington.animals.animal_storage.CatHouse;
 
@@ -75,11 +77,18 @@ public class CatTest {
         CatHouse.add(cat);
         Assert.assertEquals(0, (int)cat.getId());
     }
-   /* @Test
+    @Test
     public void testAnimalInheritance(){
         Cat cat = AnimalFactory.createCat(null,null);
-        cat instanceof Cat;
-    }*/
+
+        Assert.assertTrue(cat instanceof Animal);
+    }
+    @Test
+    public void testMammalInheritance(){
+        Cat cat = AnimalFactory.createCat(null,null );
+
+        Assert.assertTrue(cat instanceof Mammal);
+    }
 
 
 }

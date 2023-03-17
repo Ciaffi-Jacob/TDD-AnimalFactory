@@ -2,7 +2,9 @@ package rocks.zipcodewilmington;
 
 import org.junit.Assert;
 import org.junit.Test;
+import rocks.zipcodewilmington.animals.Cat;
 import rocks.zipcodewilmington.animals.Dog;
+import rocks.zipcodewilmington.animals.animal_creation.AnimalFactory;
 import rocks.zipcodewilmington.animals.animal_storage.DogHouse;
 
 import java.util.Date;
@@ -14,23 +16,27 @@ public class AnimalFactoryTest {
     //TODO - Create Test for `Animal createDog(String name, Date birthDate)`
     //TODO - Create Test for `Animal createCat(String name, Date birthDate)`
 
-    /*public static Dog createDog(String name, Date birthDate) {
-        Integer newId = DogHouse.getNumberOfDogs();
-        return new Dog(name, birthDate, newId);
-    }*/
-    /*@Test
+    @Test
     public void testCreateDog() {
         // Given
+        Date today = new Date();
+        Dog dog = AnimalFactory.createDog("Lugo", today);
 
-        Dog dog = new Dog();
-        String expected = "Lugo";
 
         // When
-        dog.getName(expected);
-        String actual = dog.getName();
 
+        String actual = dog.getName();
+        String expected = "Lugo";
         Assert.assertEquals(expected, actual);
     }
-}*/
-
+    @Test
+    public void testCreateCat(){
+        Date today = new Date();
+        Cat cat = AnimalFactory.createCat("Fatima", today);
+        String actual = cat.getName();
+        String expected = "Fatima";
+        Assert.assertEquals(expected, actual);
+    }
 }
+
+
